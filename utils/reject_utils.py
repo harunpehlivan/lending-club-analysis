@@ -174,7 +174,12 @@ def plot_amount_requested_category(data, plot_wandb = False ):
     val_cou = amount_cat.value_counts()
 
     fig = px.bar(x = val_cou.keys(), y = val_cou.values, color = val_cou.values)
-    fig.update_layout(title_text=f"Amount Requested", xaxis_title="Amount Requested", yaxis_title="count")
+    fig.update_layout(
+        title_text="Amount Requested",
+        xaxis_title="Amount Requested",
+        yaxis_title="count",
+    )
+
 
     fig.show()
     if plot_wandb:
