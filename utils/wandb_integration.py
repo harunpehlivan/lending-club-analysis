@@ -31,10 +31,7 @@ def save_bar_plot(label , data, title = "", x_label = "", y_label=""):
     output:
         plots graphs to wandb
     """
-    wandb_table_data = []
-    for i in range(len(data)):
-        wandb_table_data.append([label[i],data[i]])
-
+    wandb_table_data = [[label[i],data[i]] for i in range(len(data))]
     table = wandb.Table(data =wandb_table_data, columns=[x_label, y_label] )
 
     bar_plot = wandb.plot.bar(table, label = x_label,value = y_label, title=f"{title}")
